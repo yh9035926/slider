@@ -1,38 +1,183 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.body {
+  height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.btn {
+  font-size: 25px;
+  padding: 15px 30px;
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: sans-serif;
+  transition: all 0.4s;
+}
+
+.btn {
+  outline: none;
+}
+
+.btn:hover {
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btns {
+  font-size: 25px;
+  padding: 15px 30px;
+  border: 3px solid gold;
+  background-color: transparent;
+  color: gold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
+.btns:focus {
+  outline: none;
+}
+
+.btns::before,
+.btns::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: gold;
+  top: 0;
+  left: -50%;
+  transition: all 0.4s;
+  z-index: -1;
+}
+
+.btns::after {
+  left: 100%;
+}
+
+.btns:hover::before {
+  transform: translateX(100%);
+}
+
+.btns:hover::after {
+  transform: translateX(-100%);
+}
+
+.btns:hover {
+  color: #3c3e70;
+}
+
+.btnr {
+  font-size: 30px;
+  padding: 10px 30px;
+  border: 3px solid black;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.btnr::before,
+.btnr::after {
+  position: absolute;
+  content: "";
+  width: 25%;
+  height: 100%;
+  top: 0;
+  transition: all 0.4s;
+  z-index: -1;
+}
+
+.btnr::before {
+  background-color: red;
+  left: 0;
+  transform: translateY(-100%);
+}
+
+.btnr::after {
+  background-color: orange;
+
+  left: 25%;
+  transform: translateY(100%);
+}
+
+.shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -2;
+}
+
+.shape::before,
+.shape::after {
+  position: absolute;
+  content: "";
+  width: 25%;
+  height: 100%;
+  top: 0;
+  transition: all 0.4s;
+  z-index: -1;
+}
+
+.shape::before {
+  left: 50%;
+  background-color: green;
+  transform: translateY(-100%);
+}
+
+.shape::after {
+  left: 75%;
+  background-color: purple;
+  transform: translateY(100%);
+}
+
+.btnr:hover::before,
+.btnr:hover::after,
+.btnr:hover .shape::before,
+.btnr:hover .shape::after {
+  transform: translateY(0%);
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 0 white, 10px 10px 20px 10px purple,
+    -10px -10px 20px 0 cyan, /*안쪽 그림자*/ inset 0 0 14px 0 white,
+    inset -40px -30px 60px 0 purple, inset -40px -30px 70px 0 blue,
+    inset -40px -30px 100px 0 cyan, inset -40px -30px 140px 0 powderblue;
+  animation: glow 2s linear infinite alternate;
+}
+
+@keyframes glow {
   from {
-    transform: rotate(0deg);
+    box-shadow: 0 0 20px 0 white, 10px 10px 20px 10px purple,
+      -10px -10px 20px 0 cyan, /*안쪽 그림자*/ inset 0 0 14px 0 white,
+      inset -40px -30px 60px 0 purple, inset -40px -30px 70px 0 blue,
+      inset -40px -30px 100px 0 cyan, inset -40px -30px 140px 0 powderblue;
   }
   to {
-    transform: rotate(360deg);
+    box-shadow: 0 0 20px 0 white, 10px 10px 20px 10px brown,
+      -10px -10px 20px 0 green, /*안쪽 그림자*/ inset 0 0 14px 0 white,
+      inset -40px -30px 60px 0 brown, inset -40px -30px 70px 0 blue,
+      inset -40px -30px 100px 0 green, inset -40px -30px 140px 0 powderblue;
   }
 }
