@@ -207,8 +207,7 @@
     2% 35%,
     39% 35%
   );
-  animation: change 0.1s linear infinite alternate;
-  transition: clip-path 0.5s;
+  animation: change 0.5s linear infinite alternate;
 }
 
 @keyframes change {
@@ -230,6 +229,17 @@
     );
   }
   to {
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    clip-path: polygon(
+      50% 0%,
+      79% 20%,
+      98% 35%,
+      89% 64%,
+      79% 91%,
+      52% 91%,
+      21% 91%,
+      11% 63%,
+      2% 35%,
+      23% 19%
+    );
   }
 }
