@@ -12,6 +12,9 @@ function App() {
         </button>
         <div className="box"></div>
       </div>
+      <div className="body2">
+        <div className="star"></div>
+      </div>
     </>
   );
 }

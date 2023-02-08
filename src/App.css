@@ -11,6 +11,15 @@
   align-items: center;
 }
 
+.body2 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
 .btn {
   font-size: 25px;
   padding: 15px 30px;
@@ -179,5 +188,48 @@
       -10px -10px 20px 0 green, /*안쪽 그림자*/ inset 0 0 14px 0 white,
       inset -40px -30px 60px 0 brown, inset -40px -30px 70px 0 blue,
       inset -40px -30px 100px 0 green, inset -40px -30px 140px 0 powderblue;
+  }
+}
+
+.star {
+  height: 300px;
+  width: 300px;
+  background-color: orange;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  animation: change 0.1s linear infinite alternate;
+  transition: clip-path 0.5s;
+}
+
+@keyframes change {
+  from {
+    height: 300px;
+    width: 300px;
+    background-color: orange;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+  }
+  to {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
   }
 }
