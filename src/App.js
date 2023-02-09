@@ -1,22 +1,39 @@
-import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
-function App() {
+const App = () => {
+  const [name, setName] = useState(["홍길동", "김민수"]);
+  const [input, setInput] = useState("");
+
+  const onChange = (e) => {
+    setInput(e.target.value);
+  };
+
+  const Click = () => {
+    setName((pre) => {
+      return [...pre, input];
+    });
+  };
+
+  const Enter = (e) => {
+    if (e.key === "Enter") {
+      Click();
+    }
+  };
+
   return (
-    <>
-      <div className="body">
-        <button className="btn">Hello</button>
-        <button className="btns">Button</button>
-        <button className="btnr">
-          <span className="shape"></span>Button
-        </button>
-        <div className="box"></div>
-      </div>
-      <div className="body2">
-        <div className="star"></div>
-      </div>
-    </>
+    <div>
+      <input
+        type="text"
+        onChange={onChange}
+        value={input}
+        onKeyUp={Enter}
+      ></input>
+      <button onClick={Click}>Upload</button>
+      {name.map((n) => {
+        return <div>{n}</div>;
+      })}
+    </div>
   );
-}
+};
 
 export default App;
