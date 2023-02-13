@@ -1,17 +1,31 @@
-import React, { useState } from "react";
-import Page from "./components/Page";
-import "./App.css";
-import { ThemeContext } from "./context/ThemeContext";
-import { Usercontext } from "./context/UserContext";
+import React, { useCallback, useEffect, useState } from "react";
+import Box from "./components/Box";
+
 const App = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [number, setNumber] = useState(100);
+  const [isDark, setIsdark] = useState(false);
+
+  const createBoxStyle = useCallback(() => {
+    return {
+      backgroundColor: "pink",
+      width: `${number}px`,
+      height: `${number}px`,
+    };
+  }, [number]);
 
   return (
-    <Usercontext.Provider value={"사용자"}>
-      <ThemeContext.Provider value={{ isDark, setIsDark }}>
-        <Page />
-      </ThemeContext.Provider>
-    </Usercontext.Provider>
+    <div style={{ background: isDark ? "black" : "white" }}>
+      <input
+        type="number"
+        value={number}
+        onChange={(e) => {
+          setNumber(e.target.value);
+        }}
+      />
+      <button onClick={() => setIsdark(!isDark)}>Change Theme</button>
+      <Box createBoxStyle={createBoxStyle}></Box>
+    </div>
   );
 };
+
 export default App;
