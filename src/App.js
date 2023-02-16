@@ -1,13 +1,15 @@
 import React from "react";
-import CounterContainers from "./Containers/CounterContainers";
-import CounterContainer2 from "./Containers/CounterContainer2";
-
+import BannerSlider from "./components/BannerSlider";
+import Hashtag from "./components/Hashtag";
+import Header from "./components/Header";
+import "./style.css";
 const App = () => {
   return (
-    <div>
-      <CounterContainers />
-      <CounterContainer2 />
-    </div>
+    <>
+      <Header />
+      <BannerSlider />
+      <Hashtag />
+    </>
   );
 };
 
