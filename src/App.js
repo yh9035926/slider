@@ -1,15 +1,16 @@
 import React from "react";
-import BannerSlider from "./components/BannerSlider";
-import Hashtag from "./components/Hashtag";
-import Header from "./components/Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HashtagInfo from "./components/HashtagInfo";
+import Home from "./components/Home";
 import "./style.css";
 const App = () => {
   return (
-    <>
-      <Header />
-      <BannerSlider />
-      <Hashtag />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/users/:id" element={<HashtagInfo />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
