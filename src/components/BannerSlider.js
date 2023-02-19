@@ -16,19 +16,35 @@ const BannerSlider = () => {
     autoplaySpeed: 2000,
   };
 
+  const img = [
+    {
+      id: 1,
+
+      img: img1,
+    },
+
+    {
+      id: 2,
+
+      img: img2,
+    },
+
+    {
+      id: 3,
+
+      img: img3,
+    },
+  ];
+
   return (
     <div className="wrap">
       <h1>Hello</h1>
       <StyledSlider {...settings}>
-        <div>
-          <Img src={img1} alt="img" />
-        </div>
-        <div>
-          <Img src={img2} alt="img" />
-        </div>
-        <div>
-          <Img src={img3} alt="img" />
-        </div>
+        {img.map((i) => (
+          <div key={i.id}>
+            <Img src={i.img} alt="img" />
+          </div>
+        ))}
       </StyledSlider>
     </div>
   );

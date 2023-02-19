@@ -13,6 +13,15 @@ const Hashtag = () => {
     slidesToScroll: 3,
   };
   const [users, setUsers] = useState([]);
+  const [showMenu, setShowMenu] = useState("");
+
+  const handleLinkClick = (id) => {
+    setShowMenu(id);
+  };
+
+  const handleMenuClose = () => {
+    setShowMenu("");
+  };
 
   useEffect(() => {
     axios.get("http://jsonplaceholder.typicode.com/users").then((res) => {
@@ -26,11 +35,23 @@ const Hashtag = () => {
         <StyledSlider {...settings}>
           {users.map((user) => (
             <li key={user.id}>
-              <Link to={`/users/${user.id}`}>{user.username}</Link>
+              <div onClick={() => handleLinkClick(user.id)}>
+                {user.username}
+              </div>
+              {showMenu === user.id && (
+                <div>
+                  <div>{user.name}</div>
+                  <div>{user.email}</div>
+                  <div>{user.phone}</div>
+                  <button onClick={handleMenuClose}>Close</button>
+                  <span>
+                    <Link to={`/users/${user.id}`}> 더 보기</Link>
+                  </span>
+                </div>
+              )}
             </li>
           ))}
         </StyledSlider>
-        <div>여기 왜 안 나오지?{users.username}</div>
       </div>
     </div>
   );
@@ -43,5 +64,9 @@ const StyledSlider = styled(Slider)`
 
   width: 512px;
   margin: 0 auto;
-  ${styleArrow}
+  ${styleArrow} {
+    .slick-arrow {
+      top: 12px;
+    }
+  }
 `;
