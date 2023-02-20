@@ -15,8 +15,14 @@ body {
   width: 512px;
 }
 
+.border {
+  border: 10px solid;
+}
 .wrap {
+  width: 720px;
+  margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 a {
   text-decoration: none;

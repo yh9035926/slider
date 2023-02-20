@@ -5,6 +5,8 @@ import img2 from "../img/2.jpg";
 import img3 from "../img/3.jpg";
 import styled from "styled-components";
 import { styleArrow } from "../styleArrow";
+import { Link } from "react-router-dom";
+import btn from "../img/btn.png";
 const BannerSlider = () => {
   const settings = {
     dots: true,
@@ -39,6 +41,11 @@ const BannerSlider = () => {
   return (
     <div className="wrap">
       <h1>Hello</h1>
+      <SearchIcon to="/SearchPage">
+        <button>
+          <img style={{ width: "34px" }} src={btn} alt="btn" />
+        </button>
+      </SearchIcon>
       <StyledSlider {...settings}>
         {img.map((i) => (
           <div key={i.id}>
@@ -63,4 +70,11 @@ const StyledSlider = styled(Slider)`
 const Img = styled.img`
   width: 100%;
   height: 100%;
+`;
+
+const SearchIcon = styled(Link)`
+  position: absolute;
+  top: 0%;
+  right: 14%;
+  z-index: 10;
 `;
